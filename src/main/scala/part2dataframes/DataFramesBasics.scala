@@ -84,6 +84,7 @@ object DataFramesBasics extends App {
   import spark.implicits._
   val manualCarsDFWithImplicits = cars.toDF("Name", "MPG", "Cylinders", "Displacement", "HP", "Weight", "Acceleration", "Year", "CountryOrigin")
 
+  // print the schemas for both DFs to see the difference in these two methods of creating DFs from tuples
   manualCarsDF.printSchema()
   manualCarsDFWithImplicits.printSchema()
 
