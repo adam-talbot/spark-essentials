@@ -88,7 +88,7 @@ object Joins extends App {
 
   val salariesDF = readTable("salaries")
 
-  //salariesDF.show(5)
+  //salariesDF.show
 
   //val maxSalariesDF = salariesDF.groupBy("emp_no").max("salary")//.show()
   val maxSalariesDF = salariesDF.groupBy("emp_no").agg(
@@ -105,7 +105,7 @@ object Joins extends App {
   // 3 - read in titles df, get emp_nos for top 10 earners from max, current salary, join to titles using emp_no
   val titlesDF = readTable("titles")
   val top10SalariesDF = salariesDF.filter("to_date = '9999-01-01'").sort(col("salary").desc).limit(10)
-  // can also do this using groupby and max but this will get max salary, not current salary, just depends what they are looking for
+  // can also do this using groupby and max but this will get most recent   salary, not current salary, just depends what they are looking for
   //val top10Salaries = salariesDF.groupBy("emp_no", "salary").agg(max("to_date")).sort(col("salary").desc).limit(10)
   val currentTitlesDF = titlesDF.filter("to_date = '9999-01-01'")
   currentTitlesDF.join(top10SalariesDF, "emp_no")//.show()
