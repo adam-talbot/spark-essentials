@@ -7,7 +7,7 @@ object CommonTypes extends App {
 
   // start spark session
   val spark = SparkSession.builder()
-    .appName("Joins")
+    .appName("Common Types")
     .config("spark.master", "local")
     .getOrCreate()
 
@@ -35,7 +35,7 @@ object CommonTypes extends App {
 
   // Numbers
   // check schema to see dtypes
-  //RmoviesDF.printSchema()
+  // moviesDF.printSchema()
   // math operators
   // find the normalized average rating
   moviesDF.select(col("Title"), (col("Rotten_Tomatoes_Rating") / 10 + col("IMDB_Rating")) / 2)//.show()
