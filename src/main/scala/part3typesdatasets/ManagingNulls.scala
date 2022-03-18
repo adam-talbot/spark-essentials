@@ -9,8 +9,6 @@ object ManagingNulls extends App {
   val spark = SparkSession.builder()
     .appName("Managing Nulls")
     .config("spark.master", "local")
-//    // had to add this due to having newer version of Scala
-//    .config("spark.sql.legacy.timeParserPolicy", "LEGACY")
     .getOrCreate()
 
   // read in movies df
@@ -69,5 +67,5 @@ object ManagingNulls extends App {
     //.show()
   // take a look at results from complex ops
   complexNullOpsDF//.show()
-  
+
 }
